@@ -32,7 +32,6 @@ for (let i= 0; i< blocksArray.length; i++) {
         } else {
             blocksArray[i].classList.add('cross');
         }
-        findWinner();
     });
 } 
 
@@ -40,3 +39,11 @@ for (let i= 0; i< blocksArray.length; i++) {
 function findWinner() {
 
 }
+
+// Кнопка перезапуска игры
+newGameBtn.addEventListener('click', () => {
+    for (let j= 0; j< blocksArray.length; j++) {
+        blocksArray[j].classList.remove('zero');
+        blocksArray[j].classList.remove('cross');
+    }
+})
