@@ -1,9 +1,10 @@
 // Переменные DOM
-
 const blocks = document.querySelectorAll('.squere');
 const newGameBtn = document.querySelector('.new_game_btn');
 const blocksArray = Array.from(blocks);
 let winningVariants = [[0, 1 ,2], [0, 3, 6], [0, 4, 8], [2, 5, 8], [2, 4, 6], [1, 4, 7], [3, 4, 5], [6, 7, 8]];
+let playBoard = [];
+const symbols = ['X', '0'];
 
 // Модальное окно при перезагрузке, инструкция
 document.addEventListener("DOMContentLoaded", function(){
@@ -29,15 +30,27 @@ for (let i= 0; i< blocksArray.length; i++) {
         console.log(click);
         if (click % 2 === 0) {
             blocksArray[i].classList.add('zero');
+            playBoard[i] = symbols[1];
         } else {
             blocksArray[i].classList.add('cross');
+            playBoard[i] = symbols[0];
         }
-    });
-} 
+        console.log(playBoard);
+        findWinner();
+        });
+}
 
 // Находим победителя
 function findWinner() {
-
+    for (let g = 0; g < playBoard.length; g++) {
+        for (let f = 0; f < winningVariants.length; f++) {
+            if (playBoard[g] === symbols[1] && Array.indexOf(playBoard[g]) === winningVariants[f][0] && Array.indexOf(playBoard[g]) === winningVariants[f][1] && Array.indexOf(playBoard[g]) === winningVariants[f][2]) {
+                    console.log('First player wins!');
+            } else if (playBoard[g] === symbols[0] && Array.indexOf(playBoard[g]) === winningVariants[f][0] && Array.indexOf(playBoard[g]) === winningVariants[f][1] && Array.indexOf(playBoard[g]) === winningVariants[f][2]) {
+                console.log('Second player wins!');
+            }
+        }
+    }
 }
 
 // Кнопка перезапуска игры
@@ -45,5 +58,6 @@ newGameBtn.addEventListener('click', () => {
     for (let j= 0; j< blocksArray.length; j++) {
         blocksArray[j].classList.remove('zero');
         blocksArray[j].classList.remove('cross');
+        playBoard.length = 0;
     }
-})
+});
