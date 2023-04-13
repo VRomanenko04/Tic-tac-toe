@@ -1,0 +1,62 @@
+body {
+    background-color: #333;
+}
+
+/* Расположение и стили игрового стола */
+.play_container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 100px 50px;
+}
+
+.table_position {
+    display: flex;
+    flex-direction: column;
+}
+
+.play_box {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); 
+    grid-template-rows: repeat(3, 1fr); 
+    grid-gap: 2px;
+}
+
+.squere {
+    background-color: none;
+    border: 2px solid #fff;
+    height: 150px;
+    width: 150px;
+    cursor: pointer;
+}
+
+/* Кнопка перезапуска игры */
+.new_game_btn {
+    font-size: 24px;
+    background: none;
+    color: #fff;
+    border: 2px solid #fff;
+    border-radius: 5px;
+    margin-top: 50px;
+    padding: 20px 60px;
+    transition: all 400ms;
+}
+.new_game_btn:hover {
+    background-color: #fff;
+    color: #333;
+}
+
+/* Стили крестика и нолика */
+.cross {
+    background-image: url(imgs/cross.png);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 90% 90%;
+}
+
+.zero {
+    background-image: url(imgs/zero-tie.png);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 55% 55%;
+}
