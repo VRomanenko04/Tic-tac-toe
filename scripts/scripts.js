@@ -2,7 +2,10 @@
 const blocks = document.querySelectorAll('.squere');
 const newGameBtn = document.querySelector('.new_game_btn');
 const blocksArray = Array.from(blocks);
+
+// Выигрышные варианты
 let winningVariants = [[0, 1 ,2], [0, 3, 6], [0, 4, 8], [2, 5, 8], [2, 4, 6], [1, 4, 7], [3, 4, 5], [6, 7, 8]];
+// Игровой стол в виде массива
 let playBoard = [];
 const symbols = ['X', '0'];
 
@@ -42,6 +45,7 @@ for (let i= 0; i< blocksArray.length; i++) {
 
 // Находим победителя
 function findWinner() {
+    // Перебираем победные варинты
     for (let i = 0; i < winningVariants.length; i++) {
         let [a, b, c] = winningVariants[i];
         if (playBoard[a] == symbols[0] && playBoard[b] == symbols[0] && playBoard[c] == symbols[0]) {
