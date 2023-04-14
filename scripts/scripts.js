@@ -35,20 +35,22 @@ for (let i= 0; i< blocksArray.length; i++) {
             blocksArray[i].classList.add('cross');
             playBoard[i] = symbols[0];
         }
-        console.log(playBoard);
+        // console.log(playBoard);
         findWinner();
         });
 }
 
 // Находим победителя
 function findWinner() {
-    for (let g = 0; g < playBoard.length; g++) {
-        for (let f = 0; f < winningVariants.length; f++) {
-            if (playBoard[g] === symbols[1] && Array.indexOf(playBoard[g]) === winningVariants[f][0] && Array.indexOf(playBoard[g]) === winningVariants[f][1] && Array.indexOf(playBoard[g]) === winningVariants[f][2]) {
-                    console.log('First player wins!');
-            } else if (playBoard[g] === symbols[0] && Array.indexOf(playBoard[g]) === winningVariants[f][0] && Array.indexOf(playBoard[g]) === winningVariants[f][1] && Array.indexOf(playBoard[g]) === winningVariants[f][2]) {
-                console.log('Second player wins!');
-            }
+    for (let i = 0; i < winningVariants.length; i++) {
+        let [a, b, c] = winningVariants[i];
+        if (playBoard[a] == symbols[0] && playBoard[b] == symbols[0] && playBoard[c] == symbols[0]) {
+            console.log('X player win');
+            return;
+        }
+        if (playBoard[a] == symbols[1] && playBoard[b] == symbols[1] && playBoard[c] == symbols[1]) {
+            console.log('0 player win');
+            return;
         }
     }
 }
