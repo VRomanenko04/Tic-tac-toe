@@ -60,3 +60,24 @@ body {
     background-repeat: no-repeat;
     background-size: 55% 55%;
 }
+
+/* Адаптация */
+@media screen and (max-width: 321px) {
+    .squere {
+        height: 80px;
+        width: 80px;
+    }
+    .new_game_btn {
+        padding: 10px 20px;
+    }
+}
+
+@media screen and (min-width: 321px) and (max-width: 500px) {
+    .squere {
+        height: 100px;
+        width: 100px;
+    }
+    .new_game_btn {
+        padding: 10px 30px;
+    }
+}
